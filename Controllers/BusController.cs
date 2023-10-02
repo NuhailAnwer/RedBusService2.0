@@ -21,6 +21,7 @@ namespace RedBusService2._0.Controllers
         [HttpGet]
 
         [AllowAnonymous]
+
         public List<BusResponse> Get()
         {
             var Response = BusServicedbContext.Buses.Select(bus => new BusResponse
@@ -88,7 +89,7 @@ namespace RedBusService2._0.Controllers
 
         [HttpPost]
 
-      //  [Authorize(Roles = $"{UserRoles.Admin}")]
+        [Authorize(Roles = $"{UserRoles.Admin}")]
 
         public bool Post(BusRequest request)
         {
@@ -110,7 +111,7 @@ namespace RedBusService2._0.Controllers
 
         [HttpPut("{id}")]
 
-      //  [Authorize(Roles = $"{UserRoles.Admin}")]
+        [Authorize(Roles = $"{UserRoles.Admin}")]
 
         public ActionResult<bool> Put(int id, BusRequest request)
         {
@@ -134,7 +135,7 @@ namespace RedBusService2._0.Controllers
         }
         [HttpDelete("{id}")]
 
-      //  [Authorize(Roles = $"{UserRoles.Admin}")]
+        [Authorize(Roles = $"{UserRoles.Admin}")]
 
         public ActionResult<bool> Delete(int id)
         {
